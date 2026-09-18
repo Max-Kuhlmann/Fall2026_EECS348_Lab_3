@@ -2,11 +2,52 @@
 
 <head>
     <link rel="stylesheet" href="style.css">
-    <h1>Password Verification</h1>
 </head>
 
 <body>
+    <h1>Password Verification</h1>
     <p>Input same password twice</p>
+
+    <p>Password 1: <input
+      type="password"
+      id="password1"
+      size="10" /></p>
+
+    <p>Password 2: <input
+      type="password"
+      id="password2"
+      size="10" /></p>
+
+    <p><button onclick="checkPasswords()" id="Submit">Submit</button></p>
+
+    <p hidden id="8char">Passwords must be at least 8 characters</p><br>
+    <p hidden id="match">Passwords must match</p>
+    <p hidden id="success">Success!</p>
 </body>
+
+<script>
+    function checkPasswords() {
+        var charText = document.getElementById("8char");
+        var matchText = document.getElementById("match");
+        var successText = document.getElementById("success");
+
+        var password1 = document.getElementById("password1").value;
+        var password2 = document.getElementById("password2").value;
+
+        if (password1.length < 8 || password2.length < 8) {
+            charText.hidden = false;
+            matchText.hidden = true;
+            successText.hidden = true;
+        } else if (password1 != password2) {
+            charText.hidden = true;
+            matchText.hidden = false;
+            successText.hidden = true;
+        } else {
+            charText.hidden = true;
+            matchText.hidden = true;
+            successText.hidden = false;
+        }
+    }
+</script>
 
 </html>
