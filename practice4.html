@@ -1,0 +1,62 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        td, th {
+            border: 1px solid black;
+            padding: 8px 12px;
+            text-align: center;
+        }
+        th, tr:first-child td:first-child {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>EECS 348 Lab Three</h1>
+
+    <form method="POST">
+        <p>Number: <input type="number" name="number" min="1" required></p>
+        <button type="submit">Submit</button>
+    </form>
+
+    <?php
+    if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["number"])) {
+        $num = intval($_POST["number"]);
+
+        if ($num > 0) {
+            echo "<table>";
+            
+            echo "<tr>";
+            echo "<th>*</th>"; // Top-left corner cell
+            for ($col = 1; $col <= $num; $col++) {
+                echo "<th>$col</th>";
+            }
+            echo "</tr>";
+
+            for ($row = 1; $row <= $num; $row++) {
+                echo "<tr>";
+                echo "<th>$row</th>";
+
+                for ($col = 1; $col <= $num; $col++) {
+                    $product = $row * $col;
+                    echo "<td>$product</td>";
+                }
+                echo "</tr>";
+            }
+
+            echo "</table>";
+        } else {
+            echo "<p>Please enter a positive integer.</p>";
+        }
+    }
+    ?>
+</body>
+
+</html>
