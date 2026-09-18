@@ -8,6 +8,11 @@ h1 {
     font-weight: bold;
 }
 
+p {
+    margin-right: 500px;
+    margin-left: 50px;
+}
+
 img {
     height: 300;
 }

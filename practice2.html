@@ -1,0 +1,49 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <h1>CSS Font Control</h1>
+
+    <p id="RainbowText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+    <p>Red: <input
+      type="number"
+      id="red"
+      min="0"
+      max="255"
+      size="10"
+      value="0" /></p>
+
+    <p>Green: <input
+      type="number"
+      id="green"
+      min="0"
+      max="255"
+      size="10"
+      value="0" /></p>
+
+    <p>Blue: <input
+      type="number"
+      id="blue"
+      min="0"
+      max="255"
+      size="10"
+      value="0" /></p>
+
+    <p><button onclick="changeColors()">Submit</button></p>
+</body>
+
+<script>
+    function changeColors() {
+        var text = document.getElementById("RainbowText");
+        var red = document.getElementById("red").value;
+        var green = document.getElementById("green").value;
+        var blue = document.getElementById("blue").value;
+        text.style.color = "rgb(${red}, ${green}, ${blue})"";
+    }
+</script>
+
+</html>
